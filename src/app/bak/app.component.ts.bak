@@ -1,0 +1,26 @@
+import { Component } from '@angular/core';
+import { combineLatest, of, shareReplay } from 'rxjs';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'ng13';
+  constructor() {
+
+    const s$ = of(17)
+    const t$ = of(17)
+
+    combineLatest([s$, t$]).subscribe(([s, t]) => {
+      console.log('s, t', s, t);
+    })
+
+    combineLatest({s: s$, t: t$}).subscribe(({s, t}) => {
+      console.log('s, t', s, t);
+    })
+
+
+  }
+}
