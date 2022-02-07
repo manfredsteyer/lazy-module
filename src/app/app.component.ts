@@ -26,6 +26,6 @@ export class AppComponent implements OnInit {
     this.Comp = Comp;
 
     // 2nd option: using ViewContainerRef
-    const compRef = this.viewContainer.createComponent(Comp, { injector: this.injector });
+    const compRef = this.viewContainer.createComponent(Comp);
   }
 }
